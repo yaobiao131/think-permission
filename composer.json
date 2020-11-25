@@ -1,5 +1,5 @@
 {
-    "name": "xiaodi/think-permission",
+    "name": "yaobiao/think-permission",
     "description": "ThinkPHP6 权限包",
     "authors": [
         {
@@ -16,7 +16,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "lcobucci/jwt": "^3.3"
+        "lcobucci/jwt": "^3.3.0"
     },
     "autoload": {
         "psr-4": {
