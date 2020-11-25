@@ -16,7 +16,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "lcobucci/jwt": "^3.3.0"
+        "lcobucci/jwt": "3.3.3"
     },
     "autoload": {
         "psr-4": {
