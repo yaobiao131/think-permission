@@ -18,7 +18,7 @@ class Permission implements PermissionMiddlewareContract
         if ($request->isOptions()) {
             return $next($request);
         }
-        
+
         if (!$request->user) {
             return $this->handleNotLoggedIn($request);
         }
@@ -35,17 +35,17 @@ class Permission implements PermissionMiddlewareContract
      *
      * @param Request      $request
      * @param UserContract $user
-     * @param [type]       $permission
+     * @param string|array       $permission
      *
      * @return bool
      */
     public function requestHasPermission(Request $request, UserContract $user, $permission)
     {
-        if (!$user->can($permission)) {
-            return false;
+        if (is_array($permission)) {
+            return array_reduce(array_map(fn($per) => $user->can($per), $permission), fn($arr,$item) => $item || $arr, false);
+        }else {
+            return $user->can($permission);
         }
-
-        return true;
     }
 
     /**
